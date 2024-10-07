@@ -6,10 +6,10 @@ from frappe.model.document import Document
 
 
 class RideBooking(Document):
-	def calculate_data(self):
+	def validate(self):
 		total_amount_data = 0
 		for data in self.services:
 			data.amount+=total_amount_data
 		self.total_amount= total_amount_data+self.price_per_km+self.estimated_km
-		
+
 		
